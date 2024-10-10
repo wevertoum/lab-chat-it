@@ -4,6 +4,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import ToggleTheme from "@/components/ToggleTheme";
 import ThemeProviderCtx from "@/contexts/ThemeProvider";
+import SplashScreen from "@/components/SplashScreen";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className="p-0 m-0">
         <ThemeProviderCtx>
+          <SplashScreen />
           <div className={"bg-laborit-light-gray dark:bg-laborit-dark-gray"}>
             <div>
               <div className="absolute top-2 right-2">
