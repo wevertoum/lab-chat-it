@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lab Chat
 
-## Getting Started
+[![Author](https://img.shields.io/badge/author-wevertoum-8257E5?style=flat-square)](https://weverton.me)
 
-First, run the development server:
+Bem-vindo ao **Lab Chat**, uma aplicação de chat responsiva que integra com a API gratuita do ChatGPT para fornecer respostas às suas perguntas.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Demo
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Você pode acessar a versão online da aplicação aqui: [Lab Chat](https://lab-chat-it.vercel.app/)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Funcionalidades
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Design Responsivo:** Adapta-se perfeitamente a qualquer dispositivo, garantindo uma ótima experiência de usuário em dispositivos móveis, tablets e desktops.
+- **Integração com ChatGPT:** Utiliza a API gratuita do ChatGPT para fornecer respostas precisas e relevantes às consultas dos usuários.
+- **Interface de Usuário Intuitiva:** Construída com uma interface limpa e amigável usando Tailwind CSS para estilização.
+- **Rápido e Eficiente:** Implementa Axios para requisições HTTP eficientes para se comunicar com a API do ChatGPT.
 
-## Learn More
+## Tecnologias Utilizadas
 
-To learn more about Next.js, take a look at the following resources:
+- **React.js:** Uma biblioteca JavaScript para construir interfaces de usuário, permitindo o desenvolvimento de aplicações web dinâmicas e interativas.
+- **Next.js:** Um framework React que fornece renderização do lado do servidor e geração de sites estáticos, melhorando o desempenho e SEO.
+- **Tailwind CSS:** Um framework CSS utilitário que permite o desenvolvimento e a personalização rápida da interface do usuário sem sair do HTML.
+- **Axios:** Um cliente HTTP baseado em promessas para o navegador e Node.js, facilitando interações suaves com a API.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Começando
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Para executar o projeto localmente, siga estes passos:
 
-## Deploy on Vercel
+1. **Clone o repositório:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   git clone https://github.com/wevertoum/lab-chat-it.git
+   cd lab-chat-it
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. **Instale as dependências:**
+
+   ```bash
+   yarn install
+   ```
+
+3. **Execute o servidor de desenvolvimento:**
+
+   ```bash
+   yarn dev
+   ```
+
+4. **Abra seu navegador e navegue até:**
+
+   ```
+   http://localhost:3000
+   ```
+
+5. **Para rodar os testes:**
+
+   ```bash
+   yarn test
+   ```
