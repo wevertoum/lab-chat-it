@@ -16,8 +16,13 @@ const config: Config = {
         "laborit-dark-gray": "#141718",
         "laborit-text-gray-title": "#757474",
         "laborit-text-gray-p": "#A0A0A5",
+        "laborti-text-secondary": "#757171",
         "laborit-text-placeholder": "#A3A3A8",
         "laborit-icon-light": "#DDDDE4",
+      },
+      fontFamily: {
+        poppins: ["var(--font-poppins)", "sans-serif"],
+        urbanist: ["var(--font-urbanist)", "sans-serif"],
       },
     },
   },
