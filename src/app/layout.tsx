@@ -5,7 +5,6 @@ import SplashScreen from "@/components/SplashScreen";
 import { cookies } from "next/headers";
 
 import dynamic from "next/dynamic";
-import { defaultBgClass } from "@/utils/constants";
 import ToggleTheme from "@/components/ToggleTheme";
 
 const AppThemeProvider = dynamic(() => import("@/contexts/AppThemeProvider"), {
@@ -45,7 +44,7 @@ export default function RootLayout({
       <body className="p-0 m-0">
         <AppThemeProvider attribute="class" defaultTheme={theme} enableSystem>
           <SplashScreen theme={theme} />
-          <div className={defaultBgClass}>
+          <div className="bg-laborit-light-gray dark:bg-laborit-dark-gray">
             <div>
               <div className="absolute top-2 left-2">
                 <ToggleTheme />
