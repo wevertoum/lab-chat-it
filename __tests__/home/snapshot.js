@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import Home from "../../src/app/page";
 import { useRouter } from "next/navigation";
+import Home from "../../src/app/page";
 
 jest.mock("next/navigation", () => ({
   useRouter: jest.fn(),
@@ -11,13 +11,17 @@ describe("Home Page", () => {
     const push = jest.fn();
     useRouter.mockImplementation(() => ({ push }));
 
-    render(<Home />);
+    const { asFragment } = render(<Home />);
 
-    const heading = screen.getByRole("heading", { name: /On-Boarding 01/i });
+    expect(asFragment()).toMatchSnapshot();
+
+    const heading = screen.getByRole("heading", {
+      name: /Unlock the Power Of Future AI/i,
+    });
     expect(heading).toBeInTheDocument();
 
-    const button = screen.getByRole("button", { name: /chat page/i });
-    fireEvent.click(button);
+    const skipButton = screen.getByRole("button", { name: /skip/i });
+    fireEvent.click(skipButton);
 
     expect(push).toHaveBeenCalledWith("/chat");
   });

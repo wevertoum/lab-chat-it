@@ -19,11 +19,19 @@ const NavigationOnboarding: React.FC<Props> = ({
 
   return (
     <div className="flex items-center justify-around mt-6 w-[154px] h-[64px] shadow-lg py-2 px-4 rounded-[16px] bg-white dark:bg-laborit-navigator-dark">
-      <button onClick={() => setCurrent(current - 1)} disabled={isPrevDisabled}>
+      <button
+        onClick={() => setCurrent(current - 1)}
+        disabled={isPrevDisabled}
+        aria-label="left arrow"
+      >
         <ArrowIcon direction="left" disabled={isPrevDisabled} theme={theme} />
       </button>
       <div className="h-6 w-px bg-laborit-separator dark:laborit-separator-dark"></div>
-      <button onClick={() => setCurrent(current + 1)} disabled={isNextDisabled}>
+      <button
+        onClick={() => setCurrent(current + 1)}
+        disabled={isNextDisabled}
+        aria-label="right arrow"
+      >
         <ArrowIcon direction="right" disabled={isNextDisabled} theme={theme} />
       </button>
     </div>
