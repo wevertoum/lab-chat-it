@@ -56,3 +56,7 @@ Para executar o projeto localmente, siga estes passos:
    ```bash
    yarn test
    ```
+
+6. **Deploy da aplicação:**
+
+   Para fazer o deploy da aplicação, basta commitar as alterações na branch `master` e o deploy da aplicação será feito automaticamente na Vercel.

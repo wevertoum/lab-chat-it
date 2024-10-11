@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Page renders homepage unchanged 1`] = `
+<DocumentFragment>
+  <div
+    class="h-screen"
+  >
+    <div
+      class="flex flex-col items-center h-full"
+    >
+      <button
+        class="absolute top-10 right-12 text-laborit-skip-button text-bold text-[18px] font-semibold"
+      >
+        Skip
+      </button>
+      <div
+        class="relative w-[362px] h-[455px] mt-[95px]"
+      >
+        <div
+          class="absolute inset-0 w-full h-full"
+        >
+          <img
+            alt="Unlock the Power Of  Future AI-shadow"
+            data-nimg="fill"
+            decoding="async"
+            loading="lazy"
+            sizes="100vw"
+            src="/_next/image?url=%2Fassets%2Fimages%2Frobot.jpeg&w=3840&q=75"
+            srcset="/_next/image?url=%2Fassets%2Fimages%2Frobot.jpeg&w=640&q=75 640w, /_next/image?url=%2Fassets%2Fimages%2Frobot.jpeg&w=750&q=75 750w, /_next/image?url=%2Fassets%2Fimages%2Frobot.jpeg&w=828&q=75 828w, /_next/image?url=%2Fassets%2Fimages%2Frobot.jpeg&w=1080&q=75 1080w, /_next/image?url=%2Fassets%2Fimages%2Frobot.jpeg&w=1200&q=75 1200w, /_next/image?url=%2Fassets%2Fimages%2Frobot.jpeg&w=1920&q=75 1920w, /_next/image?url=%2Fassets%2Fimages%2Frobot.jpeg&w=2048&q=75 2048w, /_next/image?url=%2Fassets%2Fimages%2Frobot.jpeg&w=3840&q=75 3840w"
+            style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 33.05px; filter: blur(30px) brightness(0.5);"
+          />
+        </div>
+        <img
+          alt="Unlock the Power Of  Future AI"
+          class="px-4 pb-4"
+          data-nimg="fill"
+          decoding="async"
+          loading="lazy"
+          sizes="100vw"
+          src="/_next/image?url=%2Fassets%2Fimages%2Frobot.jpeg&w=3840&q=75"
+          srcset="/_next/image?url=%2Fassets%2Fimages%2Frobot.jpeg&w=640&q=75 640w, /_next/image?url=%2Fassets%2Fimages%2Frobot.jpeg&w=750&q=75 750w, /_next/image?url=%2Fassets%2Fimages%2Frobot.jpeg&w=828&q=75 828w, /_next/image?url=%2Fassets%2Fimages%2Frobot.jpeg&w=1080&q=75 1080w, /_next/image?url=%2Fassets%2Fimages%2Frobot.jpeg&w=1200&q=75 1200w, /_next/image?url=%2Fassets%2Fimages%2Frobot.jpeg&w=1920&q=75 1920w, /_next/image?url=%2Fassets%2Fimages%2Frobot.jpeg&w=2048&q=75 2048w, /_next/image?url=%2Fassets%2Fimages%2Frobot.jpeg&w=3840&q=75 3840w"
+          style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 33.05px;"
+        />
+      </div>
+      <div
+        class="flex justify-between my-4 items-center w-[60px]"
+      >
+        <div>
+          <svg
+            fill="none"
+            height="17.68"
+            viewBox="0 0 18 18"
+            width="17.68"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.84 15.154a6.314 6.314 0 100-12.628 6.314 6.314 0 000 12.628z"
+              fill="#141718"
+            />
+            <path
+              d="M8.84 17.364a8.524 8.524 0 100-17.048 8.524 8.524 0 000 17.048z"
+              stroke="#141718"
+              stroke-width="0.5"
+            />
+          </svg>
+        </div>
+        <div>
+          <svg
+            fill="none"
+            height="10"
+            viewBox="0 0 10 10"
+            width="10"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4.963 9.502a4.546 4.546 0 100-9.092 4.546 4.546 0 000 9.092z"
+              fill="#23262F"
+              fill-opacity="0.5"
+            />
+          </svg>
+        </div>
+        <div>
+          <svg
+            fill="none"
+            height="10"
+            viewBox="0 0 10 10"
+            width="10"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4.963 9.502a4.546 4.546 0 100-9.092 4.546 4.546 0 000 9.092z"
+              fill="#23262F"
+              fill-opacity="0.5"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        class="w-80"
+      >
+        <h1
+          class="text-center text-[33.9px] text-laborit-text-title dark:text-white font-bold"
+        >
+          Unlock the Power Of  Future AI
+        </h1>
+        <p
+          class="text-center text-[17.68px] text-laborit-text-description mt-4 font-extralight"
+        >
+          Chat with the smartest AI Future Experience power of AI with us.
+        </p>
+      </div>
+      <div
+        class="flex items-center justify-around mt-6 w-[154px] h-[64px] shadow-lg py-2 px-4 rounded-[16px] bg-white dark:bg-laborit-navigator-dark"
+      >
+        <button
+          aria-label="left arrow"
+          disabled=""
+        >
+          <svg
+            class=""
+            fill="none"
+            height="9"
+            viewBox="0 0 14 9"
+            width="14"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M4.91.265a1 1 0 00-1.414.057l-3.23 3.5a1 1 0 000 1.356l3.23 3.5a1 1 0 101.47-1.356L3.284 5.5H13a1 1 0 100-2H3.284l1.682-1.822A1 1 0 004.909.265z"
+              fill="#B1B5C4"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </button>
+        <div
+          class="h-6 w-px bg-laborit-separator dark:laborit-separator-dark"
+        />
+        <button
+          aria-label="right arrow"
+        >
+          <svg
+            class="rotate-180"
+            fill="none"
+            height="9"
+            viewBox="0 0 14 9"
+            width="14"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M4.91.265a1 1 0 00-1.414.057l-3.23 3.5a1 1 0 000 1.356l3.23 3.5a1 1 0 101.47-1.356L3.284 5.5H13a1 1 0 100-2H3.284l1.682-1.822A1 1 0 004.909.265z"
+              fill="#23262F"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
