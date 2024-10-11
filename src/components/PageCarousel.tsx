@@ -10,12 +10,18 @@ interface Props {
   navigateToChat: () => void;
 }
 
-const PageCarousel: React.FC<Props> = ({ itens }) => {
+const PageCarousel: React.FC<Props> = ({ itens, navigateToChat }) => {
   const [current, setCurrent] = useState(0);
   const { theme } = useTheme();
 
   return (
     <div className="flex flex-col items-center h-full">
+      <button
+        className="absolute top-10 right-12 text-laborit-skip-button text-bold text-[18px] font-semibold"
+        onClick={navigateToChat}
+      >
+        Skip
+      </button>
       <div className="relative w-[362px] h-[455px] mt-[95px]">
         <div className="absolute inset-0 w-full h-full">
           <Image
@@ -26,7 +32,7 @@ const PageCarousel: React.FC<Props> = ({ itens }) => {
             style={{
               objectFit: "cover",
               borderRadius: "33.05px",
-              filter: "blur(40px) brightness(0.7)",
+              filter: "blur(30px) brightness(0.5)",
             }}
           />
         </div>

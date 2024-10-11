@@ -25,6 +25,7 @@ const config: Config = {
         "laborit-dot-active": "#141718",
         "laborit-separator": "#E6E8EC",
         "laborit-separator-dark": "#E6E8EC",
+        "laborit-skip-button": "#D7D7D7",
         "laborit-navigator-dark": "#232627",
       },
       fontFamily: {

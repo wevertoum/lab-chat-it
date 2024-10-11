@@ -47,7 +47,7 @@ export default function RootLayout({
           <SplashScreen theme={theme} />
           <div className={defaultBgClass}>
             <div>
-              <div className="absolute top-2 right-2">
+              <div className="absolute top-2 left-2">
                 <ToggleTheme />
               </div>
               <main>{children}</main>
