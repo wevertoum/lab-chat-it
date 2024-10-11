@@ -1,6 +1,8 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
+import SelectedDot from "./icons/SelectedDot";
+import DefaultDot from "./icons/DefaultDot";
 
 interface Props {
   itens: PageCarousel[];
@@ -12,14 +14,11 @@ const PageCarousel: React.FC<Props> = ({ itens, navigateToChat }) => {
 
   const RenderDots = () => {
     return (
-      <div className="flex justify-center mt-4">
+      <div className="flex justify-between mt-4 items-center w-[60px]">
         {itens.map((_, index) => (
-          <div
-            key={index}
-            className={`w-4 h-4 mx-2 rounded-full cursor-pointer ${
-              current === index ? "bg-green-500" : "bg-green-200"
-            }`}
-          />
+          <div key={index}>
+            {current === index ? <SelectedDot /> : <DefaultDot />}
+          </div>
         ))}
       </div>
     );

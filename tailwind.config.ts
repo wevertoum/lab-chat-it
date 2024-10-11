@@ -19,6 +19,8 @@ const config: Config = {
         "laborti-text-secondary": "#757171",
         "laborit-text-placeholder": "#A3A3A8",
         "laborit-icon-light": "#DDDDE4",
+        "laborit-dot": "#23262F80",
+        "laborit-dot-active": "#141718",
       },
       fontFamily: {
         poppins: ["var(--font-poppins)", "sans-serif"],
