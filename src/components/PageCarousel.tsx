@@ -1,23 +1,30 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import SelectedDot from "./icons/SelectedDot";
-import DefaultDot from "./icons/DefaultDot";
+import { useTheme } from "next-themes";
+import ArrowIcon from "./icons/ArrowIcon";
+import SelectedDotIcon from "./icons/SelectedDotIcon";
+import DefaultDotIcon from "./icons/DefaultDotIcon";
 
 interface Props {
   itens: PageCarousel[];
   navigateToChat: () => void;
 }
 
-const PageCarousel: React.FC<Props> = ({ itens, navigateToChat }) => {
+const PageCarousel: React.FC<Props> = ({ itens }) => {
   const [current, setCurrent] = useState(0);
+  const { theme } = useTheme();
 
   const RenderDots = () => {
     return (
-      <div className="flex justify-between mt-4 items-center w-[60px]">
+      <div className="flex justify-between my-4 items-center w-[60px]">
         {itens.map((_, index) => (
           <div key={index}>
-            {current === index ? <SelectedDot /> : <DefaultDot />}
+            {current === index ? (
+              <SelectedDotIcon theme={theme} size={17.68} />
+            ) : (
+              <DefaultDotIcon theme={theme} />
+            )}
           </div>
         ))}
       </div>
@@ -25,42 +32,58 @@ const PageCarousel: React.FC<Props> = ({ itens, navigateToChat }) => {
   };
 
   const Navigation = () => {
+    const isPrevDisabled = current === 0;
+    const isNextDisabled = current === itens.length - 1;
+
     return (
-      <div className="flex justify-between mt-4">
+      <div className="flex items-center justify-around mt-4 w-[154px] h-[64px] shadow-lg py-2 px-4 rounded-[16px] bg-white dark:bg-laborit-navigator-dark">
         <button
-          className="bg-green-500 text-white font-bold py-2 px-4 rounded"
           onClick={() => setCurrent(current - 1)}
-          disabled={current === 0}
+          disabled={isPrevDisabled}
         >
-          Anterior
+          <ArrowIcon direction="left" disabled={isPrevDisabled} theme={theme} />
         </button>
+        <div className="h-6 w-px bg-laborit-separator dark:laborit-separator-dark"></div>
         <button
-          className="bg-green-500 text-white font-bold py-2 px-4 rounded"
           onClick={() => setCurrent(current + 1)}
-          disabled={current === itens.length - 1}
+          disabled={isNextDisabled}
         >
-          Próximo
+          <ArrowIcon
+            direction="right"
+            disabled={isNextDisabled}
+            theme={theme}
+          />
         </button>
       </div>
     );
   };
 
   return (
-    <div className="flex flex-col items-center justify-center py-2">
-      <Image
-        src={itens[current].image}
-        alt={itens[current].title}
-        width={200}
-        height={200}
-      />
+    <div className="flex flex-col items-center h-full">
+      <div className="relative  w-[362px] h-[455px] mt-[95px]">
+        <Image
+          alt={itens[current].title}
+          src={itens[current].image}
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: "cover",
+            borderRadius: "33.05px",
+            filter: "drop-shadow(0 0 70px #75717181)",
+          }}
+          className="px-4 pb-4"
+        />
+      </div>
 
       <RenderDots />
-      <h1 className="text-2xl font-bold text-center text-laborit-text-gray-title">
-        {itens[current].title}
-      </h1>
-      <p className="text-center text-laborit-text-gray-title">
-        {itens[current].description}
-      </p>
+      <div className="w-80">
+        <h1 className="text-center text-[33.9px] text-laborit-text-title dark:text-white font-bold">
+          {itens[current].title}
+        </h1>
+        <p className="text-center text-[17.68px] text-laborit-text-description mt-4 font-extralight">
+          {itens[current].description}
+        </p>
+      </div>
 
       <Navigation />
     </div>

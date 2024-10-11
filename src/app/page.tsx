@@ -7,19 +7,19 @@ export default function Home() {
 
   const itens = [
     {
-      image: "/assets/images/robot_1.png",
-      title: "1 Unlock the Power Of  Future AI",
+      image: "/assets/images/robot.jpeg",
+      title: "Unlock the Power Of  Future AI",
       description:
-        "1 Chat with the smartest AI Future Experience power of AI with us.",
+        "Chat with the smartest AI Future Experience power of AI with us.",
     },
     {
-      image: "/assets/images/robot_2.jpg",
+      image: "/assets/images/robot.jpeg",
       title: "2 Unlock the Power Of  Future AI",
       description:
         "2 Chat with the smartest AI Future Experience power of AI with us.",
     },
     {
-      image: "/assets/images/robot_3.jpg",
+      image: "/assets/images/robot.jpeg",
       title: "3 Unlock the Power Of  Future AI",
       description:
         "3 Chat with the smartest AI Future Experience power of AI with us.",
@@ -27,7 +27,7 @@ export default function Home() {
   ] as PageCarousel[];
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div className="h-screen">
       <PageCarousel itens={itens} navigateToChat={() => router.push("/chat")} />
     </div>
   );

@@ -1,7 +1,7 @@
 "use client";
 import { defaultBgClass, timeToSplashScreen } from "@/app/utils/constants";
 import { useEffect, useState } from "react";
-import LogoChatIcon from "./icons/LogoChat";
+import LogoChatIcon from "./icons/LogoChatIcon";
 
 interface Props {
   theme: string;
