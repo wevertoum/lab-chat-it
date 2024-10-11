@@ -1,5 +1,5 @@
 "use client";
-import { defaultBgClass, timeToSplashScreen } from "@/app/utils/constants";
+import { defaultBgClass, timeToSplashScreen } from "@/utils/constants";
 import { useEffect, useState } from "react";
 import LogoChatIcon from "./icons/LogoChatIcon";
 

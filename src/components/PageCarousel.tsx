@@ -17,7 +17,7 @@ const PageCarousel: React.FC<Props> = ({ itens, navigateToChat }) => {
   return (
     <div className="flex flex-col items-center h-full">
       <button
-        className="absolute top-10 right-12 text-laborit-skip-button text-bold text-[18px] font-semibold"
+        className="absolute top-10 z-1 right-12 text-laborit-skip-button text-bold text-[18px] font-semibold"
         onClick={navigateToChat}
       >
         Skip
