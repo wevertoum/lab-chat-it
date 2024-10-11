@@ -13,13 +13,13 @@ export default function Home() {
         "Chat with the smartest AI Future Experience power of AI with us.",
     },
     {
-      image: "/assets/images/robot.jpeg",
+      image: "/assets/images/robot_2.jpg",
       title: "2 Unlock the Power Of  Future AI",
       description:
         "2 Chat with the smartest AI Future Experience power of AI with us.",
     },
     {
-      image: "/assets/images/robot.jpeg",
+      image: "/assets/images/robot_3.jpg",
       title: "3 Unlock the Power Of  Future AI",
       description:
         "3 Chat with the smartest AI Future Experience power of AI with us.",
