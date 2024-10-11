@@ -3,9 +3,10 @@ import { Poppins, Urbanist } from "next/font/google";
 import "./globals.css";
 import SplashScreen from "@/components/SplashScreen";
 import { cookies } from "next/headers";
-import { defaultBgClass } from "../utils/constants";
 
 import dynamic from "next/dynamic";
+import { defaultBgClass } from "@/utils/constants";
+import ToggleTheme from "@/components/ToggleTheme";
 
 const AppThemeProvider = dynamic(() => import("@/contexts/AppThemeProvider"), {
   ssr: false,
@@ -46,6 +47,9 @@ export default function RootLayout({
           <SplashScreen theme={theme} />
           <div className={defaultBgClass}>
             <div>
+              <div className="absolute top-2 left-2">
+                <ToggleTheme />
+              </div>
               <main>{children}</main>
             </div>
           </div>
