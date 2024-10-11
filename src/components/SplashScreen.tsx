@@ -1,5 +1,5 @@
 "use client";
-import { defaultBgClass } from "@/app/utils/constants";
+import { defaultBgClass, timeToSplashScreen } from "@/app/utils/constants";
 import { useEffect, useState } from "react";
 import LogoChatIcon from "./icons/LogoChat";
 
@@ -13,7 +13,7 @@ const SplashScreen = ({ theme }: Props) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, timeToSplashScreen);
     return () => clearTimeout(timer);
   }, []);
 
