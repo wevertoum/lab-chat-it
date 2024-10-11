@@ -1,8 +1,13 @@
 "use client";
-import Image from "next/image";
+import { defaultBgClass } from "@/app/utils/constants";
 import { useEffect, useState } from "react";
+import LogoChatIcon from "./icons/LogoChat";
 
-const SplashScreen = () => {
+interface Props {
+  theme: string;
+}
+
+const SplashScreen = ({ theme }: Props) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -14,16 +19,12 @@ const SplashScreen = () => {
 
   if (loading) {
     return (
-      <div className="splash-screen fixed inset-0 flex flex-col items-center justify-between bg-white z-50">
+      <div
+        className={`splash-screen fixed inset-0 flex flex-col items-center justify-between  z-50 ${defaultBgClass}`}
+      >
         <div className="pt-10" />
-
         <div className="flex-grow flex items-center justify-center">
-          <Image
-            src="/assets/logo_chat.svg"
-            alt="logo"
-            width={100}
-            height={100}
-          />
+          <LogoChatIcon size={100} theme={theme} />
         </div>
 
         <div className="flex flex-col items-center pb-10">

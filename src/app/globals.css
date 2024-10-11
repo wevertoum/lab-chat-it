@@ -18,7 +18,15 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: var(--font-poppins), sans-serif;
+}
 
+.body-invisible {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.body-visible {
+  opacity: 1;
 }
 
 @layer utilities {
