@@ -1,193 +1,26 @@
 "use client";
+import ChatExamples from "@/components/ChatExamples";
+import InputChat from "@/components/InputChat";
 import PageContainer from "@/components/PageContainer";
 
 export default function Chat() {
+  const handleSubmit = (message: string) => {
+    console.log("Form submitted with message:", message);
+  };
+
+  const firstConversation = true;
+
   return (
     <PageContainer
       title="Health"
       showMenu
       footer={
-        <div className="text-center text-laborit-text-gray-p h-20">
-          futuro input de texto
+        <div className="mx-auto mb-[30px] mt-4 w-[346px] sm:w-[60%] lg:w-[40%]">
+          <InputChat placeholder="Send a message." onSubmit={handleSubmit} />
         </div>
       }
     >
-      <p className="text-center text-laborit-text-gray-p">
-        first page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat page
-      </p>{" "}
-      <p className="text-center text-laborit-text-gray-p">
-        chat page chat page chat page chat page chat page chat page chat page
-        chat page chat page chat last
-      </p>
+      {firstConversation ? <ChatExamples /> : <>conversa em andamento</>}
     </PageContainer>
   );
 }

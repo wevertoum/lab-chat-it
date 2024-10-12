@@ -15,7 +15,7 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        "laborit-light-gray": "#F7F8FA",
+        // "laborit-light-gray": "#F7F8FA",
         "laborit-dark-gray": "#141718",
         "laborit-text-gray-title": "#757474",
         "laborit-gray-icon-menu": "#CBCCCD",
@@ -31,6 +31,12 @@ const config: Config = {
         "laborit-skip-button": "#D7D7D7",
         "laborit-navigator-dark": "#232627",
         "laborit-back-button": "#D3D1D84D",
+        "laborit-input-background:": "#FFFFFF",
+        "laborit-input-border:": "#E1E1E1",
+        "laborit-input-background-dark": "#232627",
+        "laborit-input-border-dark": "#676767",
+        "laborit-box-example": "#F7F7F8",
+        "laborit-box-example-dark": "#232627",
       },
       fontFamily: {
         poppins: ["var(--font-poppins)", "sans-serif"],

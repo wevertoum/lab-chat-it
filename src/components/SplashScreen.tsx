@@ -19,7 +19,7 @@ const SplashScreen = ({ theme }: Props) => {
 
   if (loading) {
     return (
-      <div className="splash-screen fixed inset-0 flex flex-col items-center justify-between  z-50 bg-laborit-light-gray dark:bg-laborit-dark-gray">
+      <div className="splash-screen fixed inset-0 flex flex-col items-center justify-between  z-50 bg-white dark:bg-laborit-dark-gray">
         <div className="pt-10" />
         <div className="flex-grow flex items-center justify-center">
           <LogoChatIcon size={100} theme={theme} />
