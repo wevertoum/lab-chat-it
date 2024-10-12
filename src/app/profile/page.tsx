@@ -40,11 +40,11 @@ export default function Profile() {
           <Image
             src={user.avatarUrl}
             alt="Profile Picture"
-            width={106}
+            width={112}
             height={112}
-            className="rounded-full"
+            className="rounded-full aspect-square object-cover"
           />
-          <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-200 rounded-full"></span>
+          <span className="absolute bottom-2 right-2 w-4 h-4 bg-green-200 rounded-full"></span>
         </div>
         <h1 className="text-lg font-semibold text-white mt-4">{user.name}</h1>
         <p className="text-sm text-gray-400">{user.email}</p>
