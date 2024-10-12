@@ -11,6 +11,7 @@ import SupportIcon from "@/components/icons/SupportIcon";
 import PageContainer from "@/components/PageContainer";
 import ChevronIcon from "@/components/icons/ChevronIcon";
 import { useTheme } from "next-themes";
+import { useRouter } from "next/navigation";
 
 export default function Profile() {
   const user = {
@@ -20,6 +21,7 @@ export default function Profile() {
   };
 
   const { theme } = useTheme();
+  const router = useRouter();
 
   return (
     <PageContainer
@@ -48,31 +50,34 @@ export default function Profile() {
         <p className="text-sm text-gray-400">{user.email}</p>
       </div>
       <div className="mt-8 space-y-6">
-        <div className="flex items-center justify-between px-4">
+        <div
+          className="flex items-center justify-between px-4"
+          onClick={() => router.push("/profile/preferences")}
+        >
           <div className="flex items-center space-x-4">
             <SettingsIcon size={33} theme={theme} />
-            <span className="text-white">Preferences</span>
+            <span className="text-black dark:text-white">Preferences</span>
           </div>
           <ChevronIcon size={15} direction="right" fixedColor="#A7A7AB" />
         </div>
         <div className="flex items-center justify-between px-4">
           <div className="flex items-center space-x-4">
             <LockIcon size={33} theme={theme} />
-            <span className="text-white">Account Security</span>
+            <span className="text-black dark:text-white">Account Security</span>
           </div>
           <ChevronIcon size={15} direction="right" fixedColor="#A7A7AB" />
         </div>
         <div className="flex items-center justify-between px-4">
           <div className="flex items-center space-x-4">
             <SupportIcon size={33} theme={theme} />
-            <span className="text-white">Customer Support</span>
+            <span className="text-black dark:text-white">Customer Support</span>
           </div>
           <ChevronIcon size={15} direction="right" fixedColor="#A7A7AB" />
         </div>
         <div className="flex items-center justify-between px-4">
           <div className="flex items-center space-x-4">
             <LogoutIcon size={33} theme={theme} />
-            <span className="text-white">Logout</span>
+            <span className="text-black dark:text-white">Logout</span>
           </div>
           <ChevronIcon size={15} direction="right" fixedColor="#A7A7AB" />
         </div>
