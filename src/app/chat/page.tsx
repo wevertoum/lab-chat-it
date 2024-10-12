@@ -8,7 +8,7 @@ export default function Chat() {
     console.log("Form submitted with message:", message);
   };
 
-  const firstConversation = false;
+  const firstConversation = true;
 
   return (
     <PageContainer
