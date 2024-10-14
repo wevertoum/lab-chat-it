@@ -85,8 +85,6 @@ export default function Chat() {
   );
 
   const handleRegenerateResponse = () => {
-    console.log("Regenerate response clicked");
-
     if (messages.length > 0 && messages[messages.length - 1].author === "bot") {
       const updatedMessages = messages.slice(0, -1);
       setMessages(updatedMessages);
