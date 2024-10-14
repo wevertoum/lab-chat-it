@@ -18,25 +18,30 @@ const messagesMock = [
     content:
       "There are several over-the-counter and prescription medications that can be used to treat head pain. Some common ones include: Acetaminophen (Tylenol) - This is an over-the-counter medication that can be effective for mild to moderate headaches?",
   },
-  {
-    author: "user",
-    avatar: "/assets/images/robot.jpeg",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  },
-  {
-    author: "bot",
-    avatar: "/assets/images/ai.png",
-    content:
-      "There are several over-the-counter and prescription medications that can be used to treat head pain. Some common ones include: Acetaminophen (Tylenol) - This is an over-the-counter medication that can be effective for mild to moderate headaches?",
-  },
 ] as Message[];
 
 export default function Chat() {
   const { theme } = useTheme();
 
-  const handleSubmit = (message: string) => {
-    console.log("Form submitted with message:", message);
+  const handleSubmit = async (message: string) => {
+    try {
+      const response = await fetch("/api/chatgpt", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch response");
+      }
+
+      const data = (await response.json()) as ResponseChat;
+      console.log("ChatGPT Response here:", data.text);
+    } catch (error) {
+      console.error("Error sending message:", error);
+    }
   };
 
   const handleRegenerateResponse = () => {

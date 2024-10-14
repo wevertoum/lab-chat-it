@@ -20,6 +20,22 @@ body {
   font-family: var(--font-poppins), sans-serif;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #757171;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #23262f;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .body-invisible {
   opacity: 0;
   transition: opacity 0.3s ease;
