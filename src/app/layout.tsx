@@ -32,7 +32,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const theme = cookies().get("__theme__")?.value || "system";
+  const theme = cookies().get("__theme__")?.value || "light";
 
   return (
     <html
@@ -41,7 +41,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="p-0 m-0">
-        <AppThemeProvider attribute="class" defaultTheme={theme} enableSystem>
+        <AppThemeProvider attribute="class" defaultTheme={theme}>
           <SplashScreen theme={theme} />
           <div className="bg-white dark:bg-laborit-dark-gray">
             <div>
