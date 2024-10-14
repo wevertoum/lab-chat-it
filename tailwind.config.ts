@@ -26,6 +26,7 @@ const config: Config = {
         "laborit-icon-light": "#DDDDE4",
         "laborit-dot": "#23262F80",
         "laborit-separator": "#E6E8EC",
+        "laborit-ball-green": "#0AB161",
         "laborit-separator-dark": "#E6E8EC",
         "laborit-skip-button": "#D7D7D7",
         "laborit-secondary-dark": "#232627",
