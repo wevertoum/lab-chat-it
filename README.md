@@ -26,7 +26,7 @@ Você pode acessar a versão online da aplicação aqui: [Lab Chat](https://lab-
 - **@ai-sdk/openai:** Um SDK para interagir com a API do ChatGPT, permitindo a geração de respostas de texto de alta qualidade.
 ## Estrutura de Pastas
 
-A estrutura do projeto é organizada da seguinte forma:
+A estrutura do projeto é organizada da seguinte forma (src):
 
 ```
 .
@@ -34,9 +34,8 @@ A estrutura do projeto é organizada da seguinte forma:
 │   └── setTheme.ts
 ├── app
 │   ├── api
-│   │   ├── chatgpt
-│   │   │   └── route.ts
-│   │   └── example.js
+│   │   └── chatgpt
+│   │       └── route.ts
 │   ├── chat
 │   │   └── page.tsx
 │   ├── favicon.ico
@@ -77,6 +76,7 @@ A estrutura do projeto é organizada da seguinte forma:
 │       ├── DefaultDotIcon.tsx
 │       ├── EyeIcon.tsx
 │       ├── HouseIcon.tsx
+│       ├── Invite
 │       ├── InviteFriendsIcon.tsx
 │       ├── LockIcon.tsx
 │       ├── LogoChatIcon.tsx
