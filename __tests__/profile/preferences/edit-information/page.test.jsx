@@ -1,21 +1,23 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import EditInformation from "../../../../src/app/profile/preferences/edit-information/page";
-import { useRouter } from "next/navigation";
 
 jest.mock("next/navigation", () => ({
   useRouter: jest.fn(),
 }));
 
 describe("Edit Information Page", () => {
-  it("renders a heading", () => {
-    useRouter.mockReturnValue({
-      push: jest.fn(),
-    });
-
+  it("renders the Edit Information page", () => {
     render(<EditInformation />);
 
-    const heading = screen.getByRole("heading", { level: 1 });
-    expect(heading).toBeInTheDocument();
+    expect(screen.getByText("Edit Information")).toBeInTheDocument();
+
+    expect(screen.getByPlaceholderText("Full Name")).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("Email")).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("Password")).toBeInTheDocument();
+
+    expect(
+      screen.getByRole("button", { name: /save changes/i })
+    ).toBeInTheDocument();
   });
 });

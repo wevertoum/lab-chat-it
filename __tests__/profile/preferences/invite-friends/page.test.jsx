@@ -1,21 +1,31 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import InviteFriends from "../../../../src/app/profile/preferences/invite-friends/page";
-import { useRouter } from "next/navigation";
+import { ThemeProvider } from "next-themes";
 
 jest.mock("next/navigation", () => ({
   useRouter: jest.fn(),
 }));
 
 describe("Invite Friends Page", () => {
-  it("renders a heading", () => {
-    useRouter.mockReturnValue({
-      push: jest.fn(),
-    });
+  beforeEach(() => {
+    render(
+      <ThemeProvider enableSystem={true} attribute="class">
+        <InviteFriends />
+      </ThemeProvider>
+    );
+  });
 
-    render(<InviteFriends />);
+  it("renders the Invite Friends page correctly", () => {
+    expect(screen.getByText("Invite Friends")).toBeInTheDocument();
 
-    const heading = screen.getByRole("heading", { level: 1 });
-    expect(heading).toBeInTheDocument();
+    expect(screen.getByText("Refeer A friend")).toBeInTheDocument();
+    expect(
+      screen.getByText("Share Your Promo Code & Get $3 For Each Friend")
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByRole("button", { name: /copy invite code/i })
+    ).toBeInTheDocument();
   });
 });
