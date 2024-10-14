@@ -1,6 +1,6 @@
 import { useState } from "react";
 import HouseIcon from "@/components/icons/HouseIcon";
-import MenuGrouped from "@/components/icons/MenuGrouped";
+import MenuGroupedIcon from "@/components/icons/MenuGroupedIcon";
 import ClockIcon from "@/components/icons/ClockIcon";
 import PersonIcon from "@/components/icons/PersonIcon";
 
@@ -13,7 +13,7 @@ export default function FooterMenu({ theme }: FooterMenuProps) {
 
   const menuItems = [
     { name: "house", IconComponent: HouseIcon },
-    { name: "menu", IconComponent: MenuGrouped },
+    { name: "menu", IconComponent: MenuGroupedIcon },
     { name: "clock", IconComponent: ClockIcon },
     { name: "person", IconComponent: PersonIcon },
   ];

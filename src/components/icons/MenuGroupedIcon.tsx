@@ -1,6 +1,6 @@
 import React from "react";
 
-function MenuGrouped({ size = 25, selected = false, theme = "light" }) {
+function MenuGroupedIcon({ size = 25, selected = false, theme = "light" }) {
   const color = selected
     ? theme === "dark"
       ? "#FFFFFF"
@@ -24,4 +24,4 @@ function MenuGrouped({ size = 25, selected = false, theme = "light" }) {
   );
 }
 
-export default MenuGrouped;
+export default MenuGroupedIcon;
