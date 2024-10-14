@@ -3,7 +3,6 @@ import { Poppins, Urbanist } from "next/font/google";
 import "./globals.css";
 import SplashScreen from "@/components/SplashScreen";
 import { cookies } from "next/headers";
-import { defaultBgClass } from "../utils/constants";
 
 import dynamic from "next/dynamic";
 
@@ -44,7 +43,7 @@ export default function RootLayout({
       <body className="p-0 m-0">
         <AppThemeProvider attribute="class" defaultTheme={theme} enableSystem>
           <SplashScreen theme={theme} />
-          <div className={defaultBgClass}>
+          <div className="bg-white dark:bg-laborit-dark-gray">
             <div>
               <main>{children}</main>
             </div>
