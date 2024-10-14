@@ -4,10 +4,11 @@ import ArrowSendIcon from "./icons/ArrowSendIcon";
 interface Props {
   onSubmit: (value: string) => void;
   placeholder: string;
+  value?: string;
 }
 
-const InputChat: React.FC<Props> = ({ onSubmit, placeholder }) => {
-  const [inputValue, setInputValue] = useState("");
+const InputChat: React.FC<Props> = ({ onSubmit, placeholder, value }) => {
+  const [inputValue, setInputValue] = useState(value || "");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

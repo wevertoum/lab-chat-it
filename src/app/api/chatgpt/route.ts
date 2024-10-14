@@ -1,6 +1,7 @@
 import { generateText } from "ai";
 import { openai } from "@ai-sdk/openai";
 import { NextResponse } from "next/server";
+import { defaultAnswer } from "@/utils/constants";
 
 export async function POST(request: Request) {
   try {
@@ -8,7 +9,7 @@ export async function POST(request: Request) {
 
     const { text } = await generateText({
       model: openai("gpt-3.5-turbo"),
-      system: "You are a friendly assistant!",
+      system: defaultAnswer,
       prompt: message,
     });
 

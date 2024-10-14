@@ -7,6 +7,7 @@ import PageContainer from "@/components/PageContainer";
 import RegenerateIcon from "@/components/RegenerateIcon";
 import { useTheme } from "next-themes";
 import { ArrowPathIcon } from "@heroicons/react/24/outline";
+import { generateUUID } from "@/utils/generateUUID";
 
 const LOCAL_STORAGE_KEY = "chat_conversation";
 const initialMessages: Message[] = [];
@@ -46,6 +47,7 @@ export default function Chat() {
   const handleSubmit = useCallback(
     (message: string) => {
       const newUserMessage: Message = {
+        id: generateUUID(),
         author: "user",
         avatar: "/assets/images/robot.jpeg",
         content: message,
@@ -65,6 +67,7 @@ export default function Chat() {
           }
           const data = (await response.json()) as ResponseChat;
           const newBotMessage: Message = {
+            id: generateUUID(),
             author: "bot",
             avatar: "/assets/images/ai.png",
             content: data.text,
@@ -83,6 +86,47 @@ export default function Chat() {
 
   const handleRegenerateResponse = () => {
     console.log("Regenerate response clicked");
+
+    if (messages.length > 0 && messages[messages.length - 1].author === "bot") {
+      const updatedMessages = messages.slice(0, -1);
+      setMessages(updatedMessages);
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updatedMessages));
+
+      const lastUserMessage = updatedMessages
+        .slice()
+        .reverse()
+        .find((msg) => msg.author === "user");
+
+      if (lastUserMessage) {
+        setLoading(true);
+        fetch("/api/chatgpt", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ message: lastUserMessage.content }),
+        })
+          .then(async (response) => {
+            if (!response.ok) {
+              throw new Error("Failed to fetch response");
+            }
+            const data = (await response.json()) as ResponseChat;
+            const newBotMessage: Message = {
+              id: generateUUID(),
+              author: "bot",
+              avatar: "/assets/images/ai.png",
+              content: data.text,
+            };
+            setMessagesAndSave(newBotMessage);
+          })
+          .catch((error) => {
+            console.error("Error fetching from OpenAI:", error);
+          })
+          .finally(() => {
+            setLoading(false);
+          });
+      }
+    }
   };
 
   const firstConversation = useMemo(() => messages.length === 0, [messages]);
