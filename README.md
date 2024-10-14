@@ -2,6 +2,10 @@
 
 [![Author](https://img.shields.io/badge/author-wevertoum-8257E5?style=flat-square)](https://weverton.me)
 
+Tempo de desenvolvimento:
+
+[![wakatime](https://wakatime.com/badge/user/23a27b6b-815f-4cef-8a6c-21bdf1f9c3ed/project/ac02bf54-2f2d-4105-913e-4a8a856d37ec.svg)](https://wakatime.com/badge/user/23a27b6b-815f-4cef-8a6c-21bdf1f9c3ed/project/ac02bf54-2f2d-4105-913e-4a8a856d37ec)
+
 Bem-vindo ao **Lab Chat**, uma aplicação de chat responsiva que integra com a API gratuita do ChatGPT para fornecer respostas às suas perguntas.
 
 ## Demo
