@@ -4,9 +4,10 @@ import DisplayMessage from "./DisplayMessage";
 
 interface Props {
   messages: Message[];
+  onUpdateMessage: (newMessage: Message) => void;
 }
 
-const MessagesList: React.FC<Props> = ({ messages }) => {
+const MessagesList: React.FC<Props> = ({ messages, onUpdateMessage }) => {
   const handleCopy = (content: string) => {
     navigator.clipboard.writeText(content);
     alert("Message copied to clipboard!");
@@ -16,8 +17,8 @@ const MessagesList: React.FC<Props> = ({ messages }) => {
     alert("Sharing: " + content);
   };
 
-  const handleEdit = (content: string) => {
-    alert("Editing: " + content);
+  const handleEdit = (newMessage: Message) => {
+    onUpdateMessage(newMessage);
   };
 
   return (
@@ -28,7 +29,7 @@ const MessagesList: React.FC<Props> = ({ messages }) => {
           message={message}
           onCopy={() => handleCopy(message.content)}
           onShare={() => handleShare(message.content)}
-          onEdit={() => handleEdit(message.content)}
+          handleUpdateMessage={handleEdit}
         />
       ))}
     </div>

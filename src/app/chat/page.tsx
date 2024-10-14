@@ -7,7 +7,7 @@ import PageContainer from "@/components/PageContainer";
 import RegenerateIcon from "@/components/RegenerateIcon";
 import { useTheme } from "next-themes";
 import { ArrowPathIcon } from "@heroicons/react/24/outline";
-import { generateUUID } from "@/utils/generateUUID";
+import useChatGPT from "../hooks/useChatGPT";
 
 const LOCAL_STORAGE_KEY = "chat_conversation";
 const initialMessages: Message[] = [];
@@ -15,7 +15,7 @@ const initialMessages: Message[] = [];
 export default function Chat() {
   const { theme } = useTheme();
   const [messages, setMessages] = useState<Message[]>(initialMessages);
-  const [loading, setLoading] = useState(false);
+  const { loading, fetchChatGPT } = useChatGPT();
 
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
@@ -46,42 +46,15 @@ export default function Chat() {
 
   const handleSubmit = useCallback(
     (message: string) => {
-      const newUserMessage: Message = {
-        id: generateUUID(),
-        author: "user",
-        avatar: "/assets/images/robot.jpeg",
-        content: message,
-      };
-      setMessagesAndSave(newUserMessage);
-      setLoading(true);
-      fetch("/api/chatgpt", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      fetchChatGPT(
+        {
+          message,
+          addUserMessage: true,
         },
-        body: JSON.stringify({ message }),
-      })
-        .then(async (response) => {
-          if (!response.ok) {
-            throw new Error("Failed to fetch response");
-          }
-          const data = (await response.json()) as ResponseChat;
-          const newBotMessage: Message = {
-            id: generateUUID(),
-            author: "bot",
-            avatar: "/assets/images/ai.png",
-            content: data.text,
-          };
-          setMessagesAndSave(newBotMessage);
-        })
-        .catch((error) => {
-          console.error("Error fetching from OpenAI:", error);
-        })
-        .finally(() => {
-          setLoading(false);
-        });
+        setMessagesAndSave
+      );
     },
-    [setMessagesAndSave]
+    [fetchChatGPT, setMessagesAndSave]
   );
 
   const handleRegenerateResponse = () => {
@@ -96,36 +69,34 @@ export default function Chat() {
         .find((msg) => msg.author === "user");
 
       if (lastUserMessage) {
-        setLoading(true);
-        fetch("/api/chatgpt", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
+        fetchChatGPT(
+          {
+            message: lastUserMessage.content,
+            addUserMessage: false,
           },
-          body: JSON.stringify({ message: lastUserMessage.content }),
-        })
-          .then(async (response) => {
-            if (!response.ok) {
-              throw new Error("Failed to fetch response");
-            }
-            const data = (await response.json()) as ResponseChat;
-            const newBotMessage: Message = {
-              id: generateUUID(),
-              author: "bot",
-              avatar: "/assets/images/ai.png",
-              content: data.text,
-            };
-            setMessagesAndSave(newBotMessage);
-          })
-          .catch((error) => {
-            console.error("Error fetching from OpenAI:", error);
-          })
-          .finally(() => {
-            setLoading(false);
-          });
+          setMessagesAndSave
+        );
       }
     }
   };
+
+  const onUpdateMessage = useCallback(
+    (newMessage: Message) => {
+      const updatedMessages = messages.map((msg) =>
+        msg.id === newMessage.id ? newMessage : msg
+      );
+      setMessages(updatedMessages);
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updatedMessages));
+      fetchChatGPT(
+        {
+          message: newMessage.content,
+          addUserMessage: false,
+        },
+        setMessagesAndSave
+      );
+    },
+    [messages, fetchChatGPT, setMessagesAndSave]
+  );
 
   const firstConversation = useMemo(() => messages.length === 0, [messages]);
 
@@ -143,10 +114,10 @@ export default function Chat() {
         <ChatExamples />
       ) : (
         <>
-          <MessagesList messages={messages} />
+          <MessagesList messages={messages} onUpdateMessage={onUpdateMessage} />
           {loading && (
             <div className="flex items-center justify-center mt-6">
-              <ArrowPathIcon className="w-4 h-4 mr-2 animate-spin" />
+              <ArrowPathIcon className="w-4 h-4 mr-2 animate-spin text-laborit-text-gray-p dark:text-laborit-text-gray-p" />
               <p className="text-center text-laborit-text-gray-p dark:text-laborit-text-gray-p text-[12px]">
                 Generating response...
               </p>
@@ -156,7 +127,6 @@ export default function Chat() {
             <button
               onClick={handleRegenerateResponse}
               className={`
-                
                 flex items-center justify-center 
                 font-urbanist
                 font-medium text-[12.97px]
