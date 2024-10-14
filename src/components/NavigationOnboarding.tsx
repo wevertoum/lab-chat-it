@@ -18,7 +18,7 @@ const NavigationOnboarding: React.FC<Props> = ({
   const isNextDisabled = current === itens.length - 1;
 
   return (
-    <div className="flex items-center justify-around mt-6 w-[154px] h-[64px] shadow-lg py-2 px-4 rounded-[16px] bg-white dark:bg-laborit-navigator-dark">
+    <div className="flex items-center justify-around mt-6 w-[154px] h-[64px] shadow-lg py-2 px-4 rounded-[16px] bg-white dark:bg-laborit-secondary-dark">
       <button
         onClick={() => setCurrent(current - 1)}
         disabled={isPrevDisabled}

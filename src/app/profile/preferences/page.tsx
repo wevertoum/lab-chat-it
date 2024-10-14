@@ -1,30 +1,56 @@
 "use client";
 import ToggleTheme from "@/components/ToggleTheme";
 import PageContainer from "@/components/PageContainer";
-import { useRouter } from "next/navigation";
+import PreferenceItem from "@/components/PreferenceItem";
+import EyeIcon from "@/components/icons/EyeIcon";
+import PaymentIcon from "@/components/icons/PaymentIcon";
+import InviteFriendsIcon from "@/components/icons/InviteFriendsIcon";
+import SettingsIcon from "@/components/icons/SettingsIcon";
+import AccountIcon from "@/components/icons/AccountIcon";
+import { useTheme } from "next-themes";
 
 export default function Preferences() {
-  const router = useRouter();
+  const { theme } = useTheme();
+
+  const preferencesItems = [
+    {
+      title: "Account Information",
+      description: "Change your Account information",
+      icon: <AccountIcon size={26} theme={theme} />,
+      path: "/profile/preferences/edit-information",
+    },
+    {
+      title: "Password",
+      description: "Change your password",
+      icon: <EyeIcon size={26} theme={theme} />,
+    },
+    {
+      title: "Payment Methods",
+      description: "Add Your Credit / Credit Cards",
+      icon: <PaymentIcon size={26} theme={theme} />,
+    },
+    {
+      title: "Invite Your Friends",
+      description: "Get $3 For Each Invitation!",
+      icon: <InviteFriendsIcon size={26} theme={theme} />,
+      path: "/profile/preferences/invite-friends",
+    },
+    {
+      title: "Theme Colour",
+      description: "Change Your Theme Colour",
+      icon: <SettingsIcon size={26} theme={theme} />,
+      extra: <ToggleTheme />,
+    },
+  ];
 
   return (
-    <PageContainer title="Preferences">
+    <PageContainer title="Preference">
       <div className="flex flex-col items-center justify-center py-2">
-        <h1 className="text-2xl font-bold text-center text-laborit-text-gray-title">
-          Preferences page
-        </h1>
-        <button
-          className="bg-green-500 text-white font-bold py-2 px-4 rounded mt-4"
-          onClick={() => router.push("/profile/preferences/edit-information")}
-        >
-          go to edit-information page
-        </button>
-        <button
-          className="bg-green-500 text-white font-bold py-2 px-4 rounded mt-4"
-          onClick={() => router.push("/profile/preferences/invite-friends")}
-        >
-          go to invite-friends page
-        </button>
-        <ToggleTheme />
+        <div className="w-full max-w-md mt-8 space-y-4">
+          {preferencesItems.map((item, index) => (
+            <PreferenceItem key={index} {...item} />
+          ))}
+        </div>
       </div>
     </PageContainer>
   );

@@ -21,7 +21,7 @@ const InputChat: React.FC<Props> = ({ onSubmit, placeholder }) => {
       onSubmit={handleSubmit}
       className={`flex items-center justify-between w-full h-[48px] pl-4 
         bg-laborit-input-background border-solid border rounded-lg
-        border-laborit-input-border dark:bg-laborit-input-background-dark 
+        border-laborit-input-border dark:bg-laborit-secondary-dark 
         dark:border-laborit-input-border-dark`}
     >
       <input

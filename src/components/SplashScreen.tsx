@@ -27,7 +27,7 @@ const SplashScreen = ({ theme }: Props) => {
 
         <div className="flex flex-col items-center pb-10">
           <h1 className="text-2xl text-black dark:text-white">BrainBox</h1>
-          <p className="text-sm text-laborti-text-secondary">Version 1.0</p>
+          <p className="text-sm text-laborit-text-secondary">Version 1.0</p>
         </div>
       </div>
     );
