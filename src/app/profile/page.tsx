@@ -65,7 +65,7 @@ export default function Profile() {
             className="rounded-full aspect-square object-cover"
           />
           <div className="absolute bottom-2 right-0 flex items-center justify-center w-[22px] h-[22px] bg-white rounded-full">
-            <div className="w-[14px] h-[14px] rounded-full bg-laborit-ball-gray dark:bg-laborit-ball-green"></div>
+            <div className="w-[14px] h-[14px] rounded-full bg-laborit-dark-gray dark:bg-laborit-ball-green"></div>
           </div>
         </div>
         <h1 className="text-[27px] font-semibold text-laborit-text-profile dark:text-white mt-4">

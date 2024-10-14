@@ -15,7 +15,6 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        // "laborit-light-gray": "#F7F8FA",
         "laborit-dark-gray": "#141718",
         "laborit-text-gray-title": "#757474",
         "laborit-gray-icon-menu": "#CBCCCD",
@@ -42,9 +41,10 @@ const config: Config = {
         "laborit-box-example-dark": "#232627",
         "laborit-text-profile": "#212121",
         "laborit-text-mail": "#6A6A6B",
-        "laborit-ball-green": "#0AB161",
+        "laborit-ball-gray": "#D3D1D8",
         "laborit-icon-footer": "#141416",
         "laborit-secondary-label": "#A7A7AB",
+        "laborit-secondary-invite": "#666666",
         // footer colors
         "laborit-footer-border": "#DADADA",
         "laborit-footer-bg-start": "#FCFCFD",

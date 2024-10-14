@@ -6,7 +6,7 @@ interface Props {
   placeholder: string;
   keyName: string;
   icon: JSX.Element;
-  onChange: (key: string, value: string) => void; // Callback function
+  onChange: (key: string, value: string) => void;
 }
 
 const InputGeneric: React.FC<Props> = ({
