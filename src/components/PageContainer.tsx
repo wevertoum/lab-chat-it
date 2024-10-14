@@ -25,7 +25,7 @@ const PageContainer: React.FC<Props> = ({
           <header className="flex items-center justify-between mt-[45px] mb-[16px] w-[450px] h-[48px] py-4 px-6">
             <button
               onClick={() => router.back()}
-              className="flex items-center justify-center w-10 h-10 rounded-lg shadow-back-button dark:bg-laborit-navigator-dark dark:shadow-transparent"
+              className="flex items-center justify-center w-10 h-10 rounded-lg shadow-back-button dark:bg-laborit-secondary-dark dark:shadow-transparent"
             >
               <ChevronIcon size={8} />
             </button>
