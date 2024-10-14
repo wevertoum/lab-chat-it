@@ -1,29 +1,44 @@
 "use client";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import ChatExamples from "@/components/ChatExamples";
 import InputChat from "@/components/InputChat";
 import MessagesList from "@/components/MessagesList";
 import PageContainer from "@/components/PageContainer";
 import RegenerateIcon from "@/components/RegenerateIcon";
 import { useTheme } from "next-themes";
+import { ArrowPathIcon } from "@heroicons/react/24/outline";
 
-const messagesMock = [
-  {
-    author: "user",
-    avatar: "/assets/images/robot.jpeg",
-    content: "Hello, can you help me?",
-  },
-  {
-    author: "bot",
-    avatar: "/assets/images/ai.png",
-    content:
-      "There are several over-the-counter and prescription medications that can be used to treat head pain. Some common ones include: Acetaminophen (Tylenol) - This is an over-the-counter medication that can be effective for mild to moderate headaches?",
-  },
-] as Message[];
+const LOCAL_STORAGE_KEY = "chat_conversation";
+const initialMessages: Message[] = [];
 
 export default function Chat() {
   const { theme } = useTheme();
+  const [messages, setMessages] = useState<Message[]>(initialMessages);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const savedMessages = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (savedMessages) {
+      setMessages(JSON.parse(savedMessages));
+    }
+  }, []);
+
+  const setMessagesAndSave = useCallback((newMessage: Message) => {
+    const oldMessages = localStorage.getItem(LOCAL_STORAGE_KEY);
+    const messages = oldMessages ? JSON.parse(oldMessages) : [];
+    const updatedMessages = [...messages, newMessage];
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updatedMessages));
+    setMessages(updatedMessages);
+  }, []);
 
   const handleSubmit = async (message: string) => {
+    const newUserMessage: Message = {
+      author: "user",
+      avatar: "/assets/images/robot.jpeg",
+      content: message,
+    };
+    setMessagesAndSave(newUserMessage);
+
     try {
       const response = await fetch("/api/chatgpt", {
         method: "POST",
@@ -38,7 +53,13 @@ export default function Chat() {
       }
 
       const data = (await response.json()) as ResponseChat;
-      console.log("ChatGPT Response here:", data.text);
+
+      const newBotMessage: Message = {
+        author: "bot",
+        avatar: "/assets/images/ai.png",
+        content: data.text,
+      };
+      setMessagesAndSave(newBotMessage);
     } catch (error) {
       console.error("Error sending message:", error);
     }
@@ -48,7 +69,7 @@ export default function Chat() {
     console.log("Regenerate response clicked");
   };
 
-  const firstConversation = messagesMock.length === 0;
+  const firstConversation = useMemo(() => messages.length === 0, [messages]);
 
   return (
     <PageContainer
@@ -64,8 +85,16 @@ export default function Chat() {
         <ChatExamples />
       ) : (
         <>
-          <MessagesList messages={messagesMock} />
-          {messagesMock.length > 1 && (
+          <MessagesList messages={messages} />
+          {loading && (
+            <div className="flex items-center justify-center mt-6">
+              <ArrowPathIcon className="w-4 h-4 mr-2 animate-spin" />
+              <p className="text-center text-laborit-text-gray-p dark:text-laborit-text-gray-p text-[12px]">
+                Generating response...
+              </p>
+            </div>
+          )}
+          {!loading && messages.length > 1 && (
             <button
               onClick={handleRegenerateResponse}
               className={`
