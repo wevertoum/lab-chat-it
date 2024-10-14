@@ -22,7 +22,7 @@ const config: Config = {
         "laborit-text-gray-p": "#A0A0A5",
         "laborit-text-description": "#8E9295",
         "laborit-text-title": "#23262F",
-        "laborti-text-secondary": "#757171",
+        "laborit-text-secondary": "#757171",
         "laborit-text-placeholder": "#A3A3A8",
         "laborit-icon-light": "#DDDDE4",
         "laborit-dot": "#23262F80",
@@ -37,6 +37,18 @@ const config: Config = {
         "laborit-input-border-dark": "#676767",
         "laborit-box-example": "#F7F7F8",
         "laborit-box-example-dark": "#232627",
+        "laborit-text-profile": "#212121",
+        "laborit-text-mail": "#6A6A6B",
+        "laborit-ball-green": "#0AB161",
+        "laborit-icon-footer": "#141416",
+        "laborit-secondary-label": "#A7A7AB",
+        // footer colors
+        "laborit-footer-border": "#DADADA",
+        "laborit-footer-bg-start": "#FCFCFD",
+        "laborit-footer-bg-end": "rgba(252, 252, 253, 0.6)",
+        // footer colors dark
+        "laborit-footer-bg-dark-start": "#141718",
+        "laborit-footer-bg-dark-end": "#141718",
       },
       fontFamily: {
         poppins: ["var(--font-poppins)", "sans-serif"],
