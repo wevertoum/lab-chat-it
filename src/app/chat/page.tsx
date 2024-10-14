@@ -1,5 +1,5 @@
 "use client";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import ChatExamples from "@/components/ChatExamples";
 import InputChat from "@/components/InputChat";
 import MessagesList from "@/components/MessagesList";
@@ -16,12 +16,24 @@ export default function Chat() {
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [loading, setLoading] = useState(false);
 
+  const messagesEndRef = useRef<HTMLDivElement | null>(null);
+
   useEffect(() => {
     const savedMessages = localStorage.getItem(LOCAL_STORAGE_KEY);
     if (savedMessages) {
       setMessages(JSON.parse(savedMessages));
     }
   }, []);
+
+  const scrollToBottom = () => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
   const setMessagesAndSave = useCallback((newMessage: Message) => {
     const oldMessages = localStorage.getItem(LOCAL_STORAGE_KEY);
@@ -31,39 +43,43 @@ export default function Chat() {
     setMessages(updatedMessages);
   }, []);
 
-  const handleSubmit = async (message: string) => {
-    const newUserMessage: Message = {
-      author: "user",
-      avatar: "/assets/images/robot.jpeg",
-      content: message,
-    };
-    setMessagesAndSave(newUserMessage);
-
-    try {
-      const response = await fetch("/api/chatgpt", {
+  const handleSubmit = useCallback(
+    (message: string) => {
+      const newUserMessage: Message = {
+        author: "user",
+        avatar: "/assets/images/robot.jpeg",
+        content: message,
+      };
+      setMessagesAndSave(newUserMessage);
+      setLoading(true);
+      fetch("/api/chatgpt", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ message }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch response");
-      }
-
-      const data = (await response.json()) as ResponseChat;
-
-      const newBotMessage: Message = {
-        author: "bot",
-        avatar: "/assets/images/ai.png",
-        content: data.text,
-      };
-      setMessagesAndSave(newBotMessage);
-    } catch (error) {
-      console.error("Error sending message:", error);
-    }
-  };
+      })
+        .then(async (response) => {
+          if (!response.ok) {
+            throw new Error("Failed to fetch response");
+          }
+          const data = (await response.json()) as ResponseChat;
+          const newBotMessage: Message = {
+            author: "bot",
+            avatar: "/assets/images/ai.png",
+            content: data.text,
+          };
+          setMessagesAndSave(newBotMessage);
+        })
+        .catch((error) => {
+          console.error("Error fetching from OpenAI:", error);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    },
+    [setMessagesAndSave]
+  );
 
   const handleRegenerateResponse = () => {
     console.log("Regenerate response clicked");
@@ -113,6 +129,7 @@ export default function Chat() {
               <span className="ml-2">Regenerate Response</span>
             </button>
           )}
+          <div ref={messagesEndRef} />
         </>
       )}
     </PageContainer>
