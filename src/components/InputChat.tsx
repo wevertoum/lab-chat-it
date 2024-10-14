@@ -31,6 +31,7 @@ const InputChat: React.FC<Props> = ({ onSubmit, placeholder, value }) => {
         }}
         value={inputValue}
         type="text"
+        data-testid="input-chat"
         placeholder={placeholder}
         className="w-full h-full py-2 bg-transparent border-0 outline-none font-urbanist text-laborit-text-placeholder dark:text-white"
       />

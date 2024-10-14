@@ -20,6 +20,7 @@ const CopyInviteCode: React.FC<Props> = ({ code, onCopy, theme }) => {
         {code}
       </span>
       <button
+        aria-label="copy invite code"
         onClick={onCopy}
         className="flex items-center justify-center w-10 h-10 rounded-full"
       >

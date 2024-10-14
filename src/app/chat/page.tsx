@@ -7,7 +7,7 @@ import PageContainer from "@/components/PageContainer";
 import RegenerateIcon from "@/components/RegenerateIcon";
 import { useTheme } from "next-themes";
 import { ArrowPathIcon } from "@heroicons/react/24/outline";
-import useChatGPT from "../hooks/useChatGPT";
+import useChatGPT from "../../hooks/useChatGPT";
 
 const LOCAL_STORAGE_KEY = "chat_conversation";
 const initialMessages: Message[] = [];
